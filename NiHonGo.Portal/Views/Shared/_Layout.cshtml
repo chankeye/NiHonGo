@@ -1,0 +1,117 @@
+﻿@{
+    var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+    var isLogin = false;
+    var userType = NiHonGo.Core.Enum.UserType.User;
+    if (authCookie != null)
+    {
+        var userData = FormsAuthentication.Decrypt(authCookie.Value);
+        var data = Newtonsoft.Json.JsonConvert.DeserializeObject<NiHonGo.Core.DTO.LoginInfo>
+    (userData.UserData);
+    userType = data.UserType;
+    isLogin = true;
+    }
+    }
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+
+        @* meta *@
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <title>TRAILS - 日本就活の軌跡</title>
+        <link rel="icon" href="~/Content/Images/Logo.png">
+
+        @* load css *@
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Content/typeahead.css" rel="stylesheet" />
+        <link href="~/Content/site.css" rel="stylesheet" />
+        @RenderSection("Styles", false)
+
+        @* load js *@
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.1/typeahead.jquery.js"></script>
+        <script src="~/Scripts/vue.js"></script>
+        <script src="~/Scripts/language.js"></script>
+        <script src="~/Scripts/site.js"></script>
+        @RenderSection("Scripts", false)
+
+    </head>
+    <body>
+        <div id="wrapper">
+            @* navbar *@
+            <div class="navbar navbar-default" id="header">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand nav-group-name" href="/" rel="v:url" property="v:Title">
+                            <img src="~/Content/Images/Logo.png" alt="TRAILS" style="width: 24px; height: 24px;" />
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li title="@Resources.Resource.JobSearch" rel="v:url" property="v:Title">@Html.ActionLink(Resources.Resource.JobSearch, "Index", "Job")</li>
+                            <li title="@Resources.Resource.CompanySearch" rel="v:url" property="v:Title">@Html.ActionLink(Resources.Resource.CompanySearch, "Index", "Company")</li>
+                            <li title="@Resources.Resource.WorkBlog" rel="v:url" property="v:Title">@Html.ActionLink(@Resources.Resource.WorkBlog, "Index", "Blog")</li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            @if (isLogin)
+                        {
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="">Hello!! @User.Identity.Name <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    @if (userType == NiHonGo.Core.Enum.UserType.User)
+                                {
+                                    <li><a href="/User/ProfileEdit" title="@Resources.Resource.Profile" rel="v:url" property="v:Title">@Resources.Resource.Profile</a></li>
+                            }
+                                    @if (userType == NiHonGo.Core.Enum.UserType.Master)
+                                {
+                                    <li><a href="/Company/Master" title="@Resources.Resource.Recruitment" rel="v:url" property="v:Title">@Resources.Resource.Recruitment</a></li>
+                            }
+                                    <li><a href="/User/ChangePassword" title="@Resources.Resource.ChangePassword" rel="v:url" property="v:Title">@Resources.Resource.ChangePassword</a></li>
+                                    <li><a href="/User/Logout" title="@Resources.Resource.Logout" rel="v:url" property="v:Title">@Resources.Resource.Logout</a></li>
+                                </ul>
+                            </li>
+                    }
+                    else
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">@Resources.Resource.SignUp<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/User/MasterRegister" title="@Resources.Resource.RegisterNewMaster" rel="v:url" property="v:Title">@Resources.Resource.RegisterNewMaster</a></li>
+                                <li><a href="/User/Register" title="@Resources.Resource.RegisterNewUser" rel="v:url" property="v:Title">@Resources.Resource.RegisterNewUser</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/User/Login" title="@Resources.Resource.Login" rel="v:url" property="v:Title">@Resources.Resource.Login</a></li>
+                }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mainContiner">
+                @RenderBody()
+            </div>
+            <hr>
+            <footer class="container">
+                <div class="navbar-left text-danger">&copy; TRAILS 日本就活の軌跡 2016</div>
+                <div class="navbar-right">
+                    <a href="#" class="text-danger" id="japanese" name="japanese" v-on:click="changeLanguageToJP">日本語</a>&nbsp;
+                    <a href="#" class="text-danger" id="chinese" name="chinese" v-on:click="changeLanguageToCN">繁體中文</a>&nbsp;
+                    <a href="https://www.facebook.com/trailsjpworks/" class="text-danger" target="_blank">Facebook</a>&nbsp;
+                    <a href="mailto:info@trails.somee.com" class="text-danger">Contact Us</a>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

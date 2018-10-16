@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddJob" xml:space="preserve">
+    <value>新增工作</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>年齡</value>
+  </data>
+  <data name="ApplyRecruiter" xml:space="preserve">
+    <value>申請成為公司招募人</value>
+  </data>
+  <data name="BackToCompanyMaster" xml:space="preserve">
+    <value>回公司管理頁面</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>變更密碼</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="CompanyAddress" xml:space="preserve">
+    <value>公司地址</value>
+  </data>
+  <data name="CompanyIntroduction" xml:space="preserve">
+    <value>公司介紹</value>
+  </data>
+  <data name="CompanyMemberCount" xml:space="preserve">
+    <value>公司人數</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>公司名稱</value>
+  </data>
+  <data name="CompanyPhone" xml:space="preserve">
+    <value>公司電話</value>
+  </data>
+  <data name="CompanyProfileEdit" xml:space="preserve">
+    <value>公司資訊修改</value>
+  </data>
+  <data name="CompanySearch" xml:space="preserve">
+    <value>找公司</value>
+  </data>
+  <data name="CompanyStartYear" xml:space="preserve">
+    <value>成立年度</value>
+  </data>
+  <data name="CompanyUrl" xml:space="preserve">
+    <value>公司網址</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>確認新密碼</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>確認密碼</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="CreateDate" xml:space="preserve">
+    <value>加入時間</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>暱稱</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="EditCompany" xml:space="preserve">
+    <value>修改公司資訊</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>電子信箱</value>
+  </data>
+  <data name="Error404" xml:space="preserve">
+    <value>找不到網頁，請回到上一頁</value>
+  </data>
+  <data name="Error500" xml:space="preserve">
+    <value>發生不明錯誤，請回到上一頁</value>
+  </data>
+  <data name="GoBackToHome" xml:space="preserve">
+    <value>回首頁</value>
+  </data>
+  <data name="InputAge" xml:space="preserve">
+    <value>請輸入年齡</value>
+  </data>
+  <data name="InputCompanyAddress" xml:space="preserve">
+    <value>請輸入公司地址</value>
+  </data>
+  <data name="InputCompanyIntroduction" xml:space="preserve">
+    <value>請輸入公司介紹</value>
+  </data>
+  <data name="InputCompanyMemberCount" xml:space="preserve">
+    <value>請輸入公司人數</value>
+  </data>
+  <data name="InputCompanyName" xml:space="preserve">
+    <value>請輸入公司名稱</value>
+  </data>
+  <data name="InputCompanyPhone" xml:space="preserve">
+    <value>請輸入公司電話</value>
+  </data>
+  <data name="InputCompanyStartYear" xml:space="preserve">
+    <value>請輸入公司成立年度</value>
+  </data>
+  <data name="InputCompanyUrl" xml:space="preserve">
+    <value>請輸入公司網址</value>
+  </data>
+  <data name="InputDisplay" xml:space="preserve">
+    <value>請輸入暱稱</value>
+  </data>
+  <data name="InputEmail" xml:space="preserve">
+    <value>請輸入Email</value>
+  </data>
+  <data name="InputIntroduction" xml:space="preserve">
+    <value>請輸入自我介紹</value>
+  </data>
+  <data name="InputJobArea" xml:space="preserve">
+    <value>請選擇職缺地區</value>
+  </data>
+  <data name="InputJobDetail" xml:space="preserve">
+    <value>請輸入職缺說明</value>
+  </data>
+  <data name="InputJobHow" xml:space="preserve">
+    <value>請輸入該怎麼做</value>
+  </data>
+  <data name="InputJobTitle" xml:space="preserve">
+    <value>請輸入職缺標題</value>
+  </data>
+  <data name="InputJobType" xml:space="preserve">
+    <value>請選擇職缺類型</value>
+  </data>
+  <data name="InputJobWhat" xml:space="preserve">
+    <value>請輸入該做什麼</value>
+  </data>
+  <data name="InputJobWhy" xml:space="preserve">
+    <value>請輸入為什麼要做這個</value>
+  </data>
+  <data name="InputMobile" xml:space="preserve">
+    <value>請輸入手機號碼</value>
+  </data>
+  <data name="InputName" xml:space="preserve">
+    <value>請輸入姓名</value>
+  </data>
+  <data name="InputNewPassword" xml:space="preserve">
+    <value>請輸入您欲變更的密碼</value>
+  </data>
+  <data name="InputNewPasswordAgain" xml:space="preserve">
+    <value>請再次輸入您的新密碼</value>
+  </data>
+  <data name="InputOldPassword" xml:space="preserve">
+    <value>請輸入您的原始密碼</value>
+  </data>
+  <data name="InputPassword" xml:space="preserve">
+    <value>請輸入密碼</value>
+  </data>
+  <data name="InputPasswordAgain" xml:space="preserve">
+    <value>請再輸入一次密碼</value>
+  </data>
+  <data name="InputSlaryEnd" xml:space="preserve">
+    <value>最高薪資</value>
+  </data>
+  <data name="InputSlaryStart" xml:space="preserve">
+    <value>最低薪資</value>
+  </data>
+  <data name="InputStatusType" xml:space="preserve">
+    <value>請選擇職缺狀態</value>
+  </data>
+  <data name="InputTag" xml:space="preserve">
+    <value>請輸入標籤</value>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>自我介紹</value>
+  </data>
+  <data name="IsMarried" xml:space="preserve">
+    <value>是否結婚</value>
+  </data>
+  <data name="JobArea" xml:space="preserve">
+    <value>職缺地區</value>
+  </data>
+  <data name="JobCreateDate" xml:space="preserve">
+    <value>刊登時間</value>
+  </data>
+  <data name="JobDetail" xml:space="preserve">
+    <value>職缺說明</value>
+  </data>
+  <data name="JobEdit" xml:space="preserve">
+    <value>職缺資訊修改</value>
+  </data>
+  <data name="JobHow" xml:space="preserve">
+    <value>該怎麼做</value>
+  </data>
+  <data name="JobList" xml:space="preserve">
+    <value>職缺列表</value>
+  </data>
+  <data name="JobSearch" xml:space="preserve">
+    <value>找工作</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>職缺標題</value>
+  </data>
+  <data name="JobType" xml:space="preserve">
+    <value>職缺類型</value>
+  </data>
+  <data name="JobWhat" xml:space="preserve">
+    <value>該做什麼</value>
+  </data>
+  <data name="JobWhy" xml:space="preserve">
+    <value>為什麼要做這個</value>
+  </data>
+  <data name="Keyword" xml:space="preserve">
+    <value>關鍵字</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>處理中...</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="Married" xml:space="preserve">
+    <value>已婚</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>手機</value>
+  </data>
+  <data name="MustColumn" xml:space="preserve">
+    <value>必填欄位</value>
+  </data>
+  <data name="MyCompany" xml:space="preserve">
+    <value>我的公司</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="NeedReLoginInfo" xml:space="preserve">
+    <value>請注意，密碼變更完成後，您將需要立即以新密碼重新登入</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>最新</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>新密碼</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>原密碼</value>
+  </data>
+  <data name="OptionColumn" xml:space="preserve">
+    <value>選填欄位</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>我的履歷</value>
+  </data>
+  <data name="ProfileEdit" xml:space="preserve">
+    <value>履歷修改</value>
+  </data>
+  <data name="Recommend" xml:space="preserve">
+    <value>推薦</value>
+  </data>
+  <data name="Recruitment" xml:space="preserve">
+    <value>我要徵人</value>
+  </data>
+  <data name="RegisterNewUser" xml:space="preserve">
+    <value>註冊新會員</value>
+  </data>
+  <data name="SalaryRange" xml:space="preserve">
+    <value>薪資範圍</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜尋</value>
+  </data>
+  <data name="SearchResult" xml:space="preserve">
+    <value>搜尋結果</value>
+  </data>
+  <data name="StatusType" xml:space="preserve">
+    <value>職缺狀態</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>標籤</value>
+  </data>
+  <data name="UpdateDate" xml:space="preserve">
+    <value>最後更新時間</value>
+  </data>
+  <data name="UserLogin" xml:space="preserve">
+    <value>會員登入</value>
+  </data>
+  <data name="WorkBlog" xml:space="preserve">
+    <value>部落格</value>
+  </data>
+  <data name="BlogTitle" xml:space="preserve">
+    <value>文章標題</value>
+  </data>
+  <data name="InputBlogTitle" xml:space="preserve">
+    <value>請輸入文章標題</value>
+  </data>
+  <data name="BasicProfile" xml:space="preserve">
+    <value>基本資料</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>工作經歷</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>科系</value>
+  </data>
+  <data name="ExperienceDetail" xml:space="preserve">
+    <value>工作說明</value>
+  </data>
+  <data name="InputDepartment" xml:space="preserve">
+    <value>請輸入您就讀的科系</value>
+  </data>
+  <data name="InputExperienceDetail" xml:space="preserve">
+    <value>請輸入詳細工作內容</value>
+  </data>
+  <data name="InputJobTitleName" xml:space="preserve">
+    <value>請輸入職稱</value>
+  </data>
+  <data name="InputLanguage" xml:space="preserve">
+    <value>請輸入語言</value>
+  </data>
+  <data name="InputSchoolDetail" xml:space="preserve">
+    <value>請輸入在學校學到的事、畢業專題…</value>
+  </data>
+  <data name="InputSchoolName" xml:space="preserve">
+    <value>請輸入校名</value>
+  </data>
+  <data name="InputSkill" xml:space="preserve">
+    <value>請輸入技能</value>
+  </data>
+  <data name="InputWorksDetail" xml:space="preserve">
+    <value>請輸入詳細作品介紹</value>
+  </data>
+  <data name="InputWorksName" xml:space="preserve">
+    <value>請輸入作品名稱</value>
+  </data>
+  <data name="JobTitleName" xml:space="preserve">
+    <value>職稱</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>語言</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>期間</value>
+  </data>
+  <data name="School" xml:space="preserve">
+    <value>學校</value>
+  </data>
+  <data name="SchoolDetail" xml:space="preserve">
+    <value>學校詳細資訊</value>
+  </data>
+  <data name="SchoolName" xml:space="preserve">
+    <value>校名</value>
+  </data>
+  <data name="Skill" xml:space="preserve">
+    <value>技能</value>
+  </data>
+  <data name="Works" xml:space="preserve">
+    <value>作品</value>
+  </data>
+  <data name="WorksDetail" xml:space="preserve">
+    <value>作品說明</value>
+  </data>
+  <data name="WorksName" xml:space="preserve">
+    <value>作品名稱</value>
+  </data>
+  <data name="InputLicense" xml:space="preserve">
+    <value>請輸入證照名稱</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>證照</value>
+  </data>
+  <data name="Visa" xml:space="preserve">
+    <value>擁有簽證</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="Catalog" xml:space="preserve">
+    <value>目錄</value>
+  </data>
+  <data name="InputCatalog" xml:space="preserve">
+    <value>請輸入目錄</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>我要應徵</value>
+  </data>
+  <data name="BlogInformation" xml:space="preserve">
+    <value>開始了解日本求職的相關資訊</value>
+  </data>
+  <data name="CompanyInformation" xml:space="preserve">
+    <value>開始尋找日本的公司</value>
+  </data>
+  <data name="ForBlog" xml:space="preserve">
+    <value>日本求職、文化、旅遊資訊</value>
+  </data>
+  <data name="ForBlogInformation" xml:space="preserve">
+    <value>TRAILS部落格提供了多元的資訊，除了最主要的日本求職、企業文化的相關資訊外，更有大家最嘉愛的日本文化、旅遊、美食的相關訊息，讓更多台灣人可以好好的享受在日生活，不只是工作，更要享受生活</value>
+  </data>
+  <data name="ForCompany" xml:space="preserve">
+    <value>給公司的招募者</value>
+  </data>
+  <data name="ForCompanyInformation" xml:space="preserve">
+    <value>TRAILS提供了台灣各地的優秀人才，讓日本的企業們都能招募到優秀且具有多國語言能力的人才，解決日本人才不足的問題，拓展國際市場，多元化的文化相互衝擊，創造出更獨特的公司文化與國際觀，讓企業的品牌更有價值</value>
+  </data>
+  <data name="ForUser" xml:space="preserve">
+    <value>給求職者們</value>
+  </data>
+  <data name="ForUserInformation" xml:space="preserve">
+    <value>TRAILS提供了日本當地企業的工作職缺，提供對台灣人有興趣、想拓展台灣市場的日本企業資訊，希望能幫助更多的台灣人到日本工作找到一份理想的工作，體驗日本文化，享受日本的生活，人人都能獲得良好的生活與工作的平衡</value>
+  </data>
+  <data name="JobInformation" xml:space="preserve">
+    <value>開始尋找日本各地的工作資訊</value>
+  </data>
+  <data name="EmailDescription" xml:space="preserve">
+    <value>使用者應徵時會將應徵者的資訊寄到此信箱，請務必填入正確的信箱。</value>
+  </data>
+  <data name="RegisterNewMaster" xml:space="preserve">
+    <value>註冊公司招募帳號</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>註冊</value>
+  </data>
+</root>

@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@section Scripts
+{
+    <script src="~/Scripts/ctrls/BlogMasterCtrl.js"></script>
+}
+<div class="container">
+    <div class="page-header">
+        <button id="btnEdit" type="button" class="btn btn-danger">@Resources.Resource.Edit</button>
+        <h3><label id="blogtitle" name="blogtitle" /></h3>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <p>
+            <span class="glyphicon glyphicon-time"></span>&nbsp;<label id="createdate" name="createdate"></label>
+        </p>
+        <p>
+            <img id="photo" name="photo" class="img-rounded img-responsive" style="max-height: 800px;" />
+        </p>
+        <br />
+        <p>
+            <label id="blogdetail" name="blogdetail" />
+        </p>
+        <p>
+            @Resources.Resource.Catalog: <label id="catalog" name="catalog" />
+        </p>
+        <p>
+            @Resources.Resource.Tag: <label id="tag" name="tag" />
+        </p>
+    </div>
+</div>

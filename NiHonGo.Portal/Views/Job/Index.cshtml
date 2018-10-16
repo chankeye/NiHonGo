@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+    <script src="~/Scripts/ctrls/JobIndexCtrl.js"></script>
+}
+
+<div class="container">
+    <!--The Left column start-->
+    <div class="col-lg-3">
+        <div>
+            @Resources.Resource.SearchResult：
+            <label id="count" name="count"></label>
+            <br />
+            <br />
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@Resources.Resource.JobType</h3>
+                </div>
+                <div class="panel-body">
+                    <select id="selOptionsTypes" class="form-control"></select>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@Resources.Resource.JobArea</h3>
+                </div>
+                <div class="panel-body">
+                    <select id="selOptionsAreas" class="form-control"></select>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@Resources.Resource.Keyword</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <input type="text" placeholder="Key word" id="keyword" name="keyword" class="form-control">
+                    </div>
+                    <button id="btnSearch" type="button" class="btn btn-danger navbar-right">@Resources.Resource.Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--The Left column end-->
+    <div class="col-lg-9">
+        <hr>
+        <div id="joblist" name="joblist"></div>
+        <hr>
+        <ul id="pagination" name="pagination" class="pagination custom navbar-right"></ul>
+    </div>
+</div>
