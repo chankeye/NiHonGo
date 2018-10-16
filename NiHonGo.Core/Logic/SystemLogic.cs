@@ -10,9 +10,6 @@ namespace NiHonGo.Core.Logic
 {
     public class SystemLogic : _BaseLogic
     {
-        /// <summary>
-        /// SystemLogic Logic
-        /// </summary>
         public SystemLogic() : base() { }
 
         public void DBDataInit()
@@ -40,44 +37,35 @@ namespace NiHonGo.Core.Logic
 
         public bool SendMail(string smtpServer, string mailFrom, string mailTo, string mailSub, string mailBody)
         {
+            var log = GetLogger();
+
+            if (string.IsNullOrEmpty(mailFrom))
+                return false;
+
+            if (string.IsNullOrEmpty(smtpServer))
+                return false;
+
+            if (string.IsNullOrEmpty(mailTo))
+                return false;
+
+            if (string.IsNullOrEmpty(mailSub))
+                return false;
+
+            if (string.IsNullOrEmpty(mailBody))
+                return false;
+
             try
             {
-                if (string.IsNullOrEmpty(mailFrom))
-                    return false;
-
-                if (string.IsNullOrEmpty(smtpServer))
-                    return false;
-
-                if (string.IsNullOrEmpty(mailTo))
-                    return false;
-
-                if (string.IsNullOrEmpty(mailSub))
-                    return false;
-
-                if (string.IsNullOrEmpty(mailBody))
-                    return false;
-
-                //建立MailMessage物件
                 var mms = new MailMessage();
-
-                //指定一位寄信人MailAddress
                 mms.From = new MailAddress(mailFrom.Trim());
-
-                //信件主旨
                 mms.Subject = mailSub;
-
-                //信件內容
                 mms.Body = mailBody;
-
-                //信件內容 是否採用Html格式
                 mms.IsBodyHtml = true;
-
-                //加入信件的收信人address
                 mms.To.Add(new MailAddress(mailTo.Trim()));
 
-                using (SmtpClient client = new SmtpClient(smtpServer.Trim(), 25))//或公司、客戶的smtp_server
+                using (SmtpClient client = new SmtpClient(smtpServer.Trim(), 25))
                 {
-                    client.Credentials = new NetworkCredential(mailFrom, "");//寄信帳密
+                    client.Credentials = new NetworkCredential(mailFrom, "");
                     client.Send(mms);
                 }
 
@@ -85,6 +73,8 @@ namespace NiHonGo.Core.Logic
             }
             catch (Exception ex)
             {
+                log.Error(ex);
+
                 return false;
             }
         }

@@ -3,7 +3,6 @@
     public enum UserType
     {
         Admin,
-        Master,
         User
     }
 }

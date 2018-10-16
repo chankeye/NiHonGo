@@ -11,7 +11,5 @@ namespace NiHonGo.Core.DTO
         public string Display { get; set; }
 
         public UserType UserType { get; set; }
-
-        public bool IsDisable { get; set; }
     }
 }

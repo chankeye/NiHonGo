@@ -12,18 +12,9 @@ namespace NiHonGo.Core.DTO.User
         public string Email { get; set; }
     }
 
-    public class UserItem
+    public class UserInfoList
     {
-        public int Id { get; set; }
-
-        public string Email { get; set; }
-
-        public bool  IsDisable { get; set; }
-    }
-
-    public class UserListReturn
-    {
-        public List<UserItem> List { get; set; }
+        public List<UserInfo> List { get; set; }
 
         public int Count { get; set; }
     }

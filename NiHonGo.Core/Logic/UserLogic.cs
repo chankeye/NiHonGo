@@ -11,17 +11,8 @@ namespace NiHonGo.Core.Logic
 {
     public class UserLogic : _BaseLogic
     {
-        /// <summary>
-        /// User Logic
-        /// </summary>
         public UserLogic() : base() { }
 
-        /// <summary>
-        /// check email and password
-        /// </summary>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <returns>Master.Id</returns>
         public IsSuccessResult<int> IsValid(string email, string password)
         {
             #region check parameter
@@ -42,11 +33,7 @@ namespace NiHonGo.Core.Logic
                     r.Email == email &&
                     r.Password == passwordEncrypt
                 )
-                .Select(r => new
-                {
-                    r.Id,
-                    //r.IsDisable
-                })
+                .Select(r => new { r.Id })
                 .FirstOrDefault();
 
             // email or password wrong
@@ -56,11 +43,6 @@ namespace NiHonGo.Core.Logic
             return new IsSuccessResult<int>() { ReturnObject = user.Id };
         }
 
-        /// <summary>
-        /// get login user info
-        /// </summary>
-        /// <param name="id">User.Id</param>
-        /// <returns>login user info</returns>
         public LoginInfo GetLoginInfo(int id)
         {
             var user = NiHonGoContext.Users
@@ -82,17 +64,9 @@ namespace NiHonGo.Core.Logic
             };
         }
 
-        /// <summary>
-        /// change password
-        /// </summary>
-        /// <param name="id">User.Id</param>
-        /// <param name="oldPassword"></param>
-        /// <param name="newPassword"></param>
-        /// <returns>IsSuccess</returns>
         public IsSuccessResult ChangePassword(int id, string oldPassword, string newPassword)
         {
             var log = GetLogger();
-            log.Debug("id: {0}, oldPassword: {1}, newPassword: {2}", id, oldPassword, newPassword);
 
             #region check parameter
 
@@ -121,25 +95,24 @@ namespace NiHonGo.Core.Logic
                 return new IsSuccessResult();
             #endregion // check parameter
 
-            #region change db date
-            user.Password = Cryptography.EncryptBySHA1(newPassword);
+            try
+            {
+                user.Password = Cryptography.EncryptBySHA1(newPassword);
+                NiHonGoContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
 
-            NiHonGoContext.SaveChanges();
-            #endregion // change db date
-
-            log.Info("使用者帳號\"{0}\"變更密碼成功", user.Email);
+                return new IsSuccessResult(ErrorCode.ChangePasswordFailed.ToString());
+            }
 
             return new IsSuccessResult();
         }
 
-        /// <summary>
-        /// get user info
-        /// </summary>
-        /// <returns></returns>
         public IsSuccessResult<CreateUser> GetUser(int id)
         {
             var log = GetLogger();
-            log.Debug("id: {0}", id);
 
             var user = NiHonGoContext.Users
                 .SingleOrDefault(r => r.Id == id);
@@ -152,19 +125,15 @@ namespace NiHonGo.Core.Logic
                 {
                     Email = user.Email,
                     Name = user.Name,
+                    Password = user.Password,
+                    CreateDateTime = user.CreateDateTime.ToLocalTime().ToString("yyyy-MM-dd")
                 }
             };
         }
 
-        /// <summary>
-        /// create a new user
-        /// </summary>
-        /// <returns></returns>
         public IsSuccessResult<UserInfo> AddUser(CreateUser data, UserType type)
         {
             var log = GetLogger();
-            log.Debug("Email: {0}, Name: {1}, Phone:{2}, Type:{3}, Password:{4}, Display: {5}, IsDisable: {6}",
-                data.Email, data.Name, data.Phone, type, data.Password, data.Display, data.IsDisable);
 
             if (string.IsNullOrWhiteSpace(data.Email))
                 return new IsSuccessResult<UserInfo>(ErrorCode.EmailIsNull.ToString());
@@ -185,7 +154,7 @@ namespace NiHonGo.Core.Logic
             if (isAny)
                 return new IsSuccessResult<UserInfo>(ErrorCode.AlreadyHadThisEmail.ToString());
 
-            if ((int)type > 2)
+            if ((int)type > 1)
                 type = UserType.User;
 
             try
@@ -196,6 +165,7 @@ namespace NiHonGo.Core.Logic
                     Password = Cryptography.EncryptBySHA1(data.Password),
                     Email = data.Email,
                     Type = (int)type,
+                    CreateDateTime = DateTime.UtcNow
                 });
                 NiHonGoContext.SaveChanges();
 
@@ -239,17 +209,16 @@ namespace NiHonGo.Core.Logic
             }
         }
 
-        public IsSuccessResult UpgrateToMaster(int id)
+        public IsSuccessResult UpgrateToAdmin(int id)
         {
             var log = GetLogger();
-            log.Debug("id: {0}", id);
 
             var user = NiHonGoContext.Users.SingleOrDefault(r => r.Id == id);
             if (user == null)
                 return new IsSuccessResult(ErrorCode.UserNotFound.ToString());
 
             if (user.Type == (int)UserType.User)
-                user.Type = (int)UserType.Master;
+                user.Type = (int)UserType.Admin;
 
             try
             {
@@ -264,7 +233,7 @@ namespace NiHonGo.Core.Logic
             }
         }
 
-        public UserListReturn GetList(string email, int index, int count)
+        public UserInfoList GetList(string email, int index, int count)
         {
             var log = GetLogger();
             log.Debug("email: {0}, index: {1}, count: {2}", email, index, count);
@@ -276,14 +245,14 @@ namespace NiHonGo.Core.Logic
             var userCount = query.Count();
             var list = query.OrderByDescending(r => r.Id)
                 .Skip(index * count).Take(count)
-                .Select(r => new UserItem
+                .Select(r => new UserInfo
                 {
                     Id = r.Id,
                     Email = r.Email,
                 }).ToList();
 
 
-            return new UserListReturn
+            return new UserInfoList
             {
                 List = list,
                 Count = userCount

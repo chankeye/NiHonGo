@@ -1,4 +1,4 @@
-﻿using NiHonGo.Core.Enum;
+﻿using System.Collections.Generic;
 
 namespace NiHonGo.Core.DTO.User
 {
@@ -8,12 +8,10 @@ namespace NiHonGo.Core.DTO.User
 
         public string Name { get; set; }
 
-        public string Phone { get; set; }
-
         public string Password { get; set; }
 
-        public string Display { get; set; }
+        public List<string> Levels { get; set; }
 
-        public bool IsDisable { get; set; }
+        public string CreateDateTime { get; set; }
     }
 }

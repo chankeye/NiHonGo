@@ -2,9 +2,9 @@
 
 namespace NiHonGo.Core.DTO.Company
 {
-    public class CompanyListReturn
+    public class VideoSimpleInfoList
     {
-        public List<CompanySimpleInfo> List { get; set; }
+        public List<VideoSimpleInfo> List { get; set; }
         public int Count { get; set; }
     }
 }
