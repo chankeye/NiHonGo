@@ -9,7 +9,7 @@ namespace NiHonGo.Data.Models
             this.Users = new List<User>();
             this.Videos = new List<Video>();
             this.Words = new List<Word>();
-            this.Grammers = new List<Grammer>();
+            this.Grammars = new List<Grammar>();
         }
 
         public int Id { get; set; }
@@ -17,6 +17,6 @@ namespace NiHonGo.Data.Models
         public virtual ICollection<User> Users { get; set; }
         public virtual ICollection<Video> Videos { get; set; }
         public virtual ICollection<Word> Words { get; set; }
-        public virtual ICollection<Grammer> Grammers { get; set; }
+        public virtual ICollection<Grammar> Grammars { get; set; }
     }
 }

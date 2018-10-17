@@ -63,13 +63,13 @@ namespace NiHonGo.Data.Models.Mapping
                     m.MapRightKey("WordId");
                 });
 
-            this.HasMany(t => t.Grammers)
+            this.HasMany(t => t.Grammars)
                 .WithMany(t => t.Videos)
                 .Map(m =>
                 {
-                    m.ToTable("Video_Grammer_Map");
+                    m.ToTable("Video_Grammar_Map");
                     m.MapLeftKey("VideoId");
-                    m.MapRightKey("GrammerId");
+                    m.MapRightKey("GrammarId");
                 });
         }
     }

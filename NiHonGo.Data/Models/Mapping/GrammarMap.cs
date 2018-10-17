@@ -2,9 +2,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace NiHonGo.Data.Models.Mapping
 {
-    public class GrammerMap : EntityTypeConfiguration<Grammer>
+    public class GrammarMap : EntityTypeConfiguration<Grammar>
     {
-        public GrammerMap()
+        public GrammarMap()
         {
             // Primary Key
             this.HasKey(t => t.Id);
@@ -18,18 +18,18 @@ namespace NiHonGo.Data.Models.Mapping
                 .IsRequired();
 
             // Table & Column Mappings
-            this.ToTable("Grammer");
+            this.ToTable("Grammar");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.Title).HasColumnName("Title");
             this.Property(t => t.Description).HasColumnName("Description");
 
             // Relationships
             this.HasMany(t => t.Levels)
-                .WithMany(t => t.Grammers)
+                .WithMany(t => t.Grammars)
                 .Map(m =>
                 {
-                    m.ToTable("Grammer_Level_Map");
-                    m.MapLeftKey("GrammerId");
+                    m.ToTable("Grammar_Level_Map");
+                    m.MapLeftKey("GrammarId");
                     m.MapRightKey("LevelId");
                 });
         }

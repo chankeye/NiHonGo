@@ -56,11 +56,11 @@
     <Compile Include="Models\Mapping\VideoMap.cs" />
     <Compile Include="Models\Mapping\LevelMap.cs" />
     <Compile Include="Models\Mapping\UserMap.cs" />
-    <Compile Include="Models\Mapping\GrammerMap.cs" />
+    <Compile Include="Models\Mapping\GrammarMap.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\Level.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Grammer.cs" />
+    <Compile Include="Models\Grammar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -58,6 +58,7 @@
     <Compile Include="DTO\Blog\BlogSimpleInfo.cs" />
     <Compile Include="DTO\Blog\BlogInfo.cs" />
     <Compile Include="DTO\Blog\BlogListReturn.cs" />
+    <Compile Include="DTO\Grammar\GrammarInfo.cs" />
     <Compile Include="DTO\LevelInfo.cs" />
     <Compile Include="DTO\Video\VideoSimpleInfo.cs" />
     <Compile Include="DTO\Video\VideoInfo.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Logic\VideoLogic.cs" />
     <Compile Include="Logic\SystemLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
+    <Compile Include="Logic\GrammarLogic.cs" />
     <Compile Include="Logic\WordLogic.cs" />
     <Compile Include="Logic\_BaseLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,7 +6,7 @@
         /// Default password
         /// </summary>
         public const string DefaultPassword = "123456";
-        public const string DefaultAdminEmail = "admin@trails.somee.com";
+        public const string DefaultAdminEmail = "admin@nihongo.com";
 
         /// <summary>
         /// Account, English word to begin, only can use English, number and _

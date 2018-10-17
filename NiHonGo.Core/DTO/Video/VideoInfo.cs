@@ -1,4 +1,5 @@
-﻿using NiHonGo.Core.DTO.Word;
+﻿using NiHonGo.Core.DTO.Grammar;
+using NiHonGo.Core.DTO.Word;
 using System.Collections.Generic;
 
 namespace NiHonGo.Core.DTO.Video
@@ -21,7 +22,7 @@ namespace NiHonGo.Core.DTO.Video
 
         public List<WordInfo> Words { get; set; }
 
-        public List<GrammerInfo> Grammers { get; set; }
+        public List<GrammarInfo> Grammars { get; set; }
 
         public string CreateDateTime { get; set; }
 

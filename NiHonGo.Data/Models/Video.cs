@@ -9,7 +9,7 @@ namespace NiHonGo.Data.Models
         {
             this.Levels = new List<Level>();
             this.Words = new List<Word>();
-            this.Grammers = new List<Grammer>();
+            this.Grammars = new List<Grammar>();
         }
 
         public int Id { get; set; }
@@ -23,7 +23,7 @@ namespace NiHonGo.Data.Models
         public int UserId { get; set; }
         public virtual ICollection<Level> Levels { get; set; }
         public virtual ICollection<Word> Words { get; set; }
-        public virtual ICollection<Grammer> Grammers { get; set; }
+        public virtual ICollection<Grammar> Grammars { get; set; }
         public virtual User User { get; set; }
     }
 }

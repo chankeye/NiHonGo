@@ -1,5 +1,5 @@
 ﻿using NiHonGo.Core.DTO;
-using NiHonGo.Core.DTO.Word;
+using NiHonGo.Core.DTO.Grammar;
 using NiHonGo.Core.Enum;
 using NiHonGo.Data.Models;
 using System;
@@ -9,11 +9,11 @@ using System.Linq;
 
 namespace NiHonGo.Core.Logic
 {
-    public class WordLogic : _BaseLogic
+    public class GrammarLogic : _BaseLogic
     {
-        public WordLogic() : base() { }
+        public GrammarLogic() : base() { }
 
-        public IsSuccessResult Edit(int userId, WordInfo data)
+        public IsSuccessResult Edit(int userId, GrammarInfo data)
         {
             var log = GetLogger();
 
@@ -23,20 +23,20 @@ namespace NiHonGo.Core.Logic
             if (isAdmin == false)
                 return new IsSuccessResult(ErrorCode.NoAuthentication.ToString());
 
-            if (string.IsNullOrWhiteSpace(data.Japanese))
-                return new IsSuccessResult(ErrorCode.JapaneseContentIsNull.ToString());
+            if (string.IsNullOrWhiteSpace(data.Title))
+                return new IsSuccessResult(ErrorCode.TitleIsNull.ToString());
 
-            if (string.IsNullOrWhiteSpace(data.Chinese))
-                return new IsSuccessResult(ErrorCode.ChineseContentIsNull.ToString());
+            if (string.IsNullOrWhiteSpace(data.Description))
+                return new IsSuccessResult(ErrorCode.DescriptionIsNull.ToString());
 
             try
             {
                 if (data.Id == 0)
                 {
-                    var isAny = NiHonGoContext.Words
-                    .Any(r => r.Japanese == data.Japanese);
+                    var isAny = NiHonGoContext.Grammars
+                    .Any(r => r.Title == data.Title);
                     if (isAny)
-                        return new IsSuccessResult(ErrorCode.AlreadyHadThisWord.ToString());
+                        return new IsSuccessResult(ErrorCode.AlreadyHadThisGrammar.ToString());
 
                     var levels = new List<Level>();
                     foreach (var item in data.Levels)
@@ -45,30 +45,30 @@ namespace NiHonGo.Core.Logic
                         if (level != null)
                             levels.Add(level);
                     }
-                    var word = new Word
+                    var grammar = new Grammar
                     {
-                        Japanese = data.Japanese,
-                        Chinese = data.Chinese,
+                        Title = data.Title,
+                        Description = data.Description,
                         Levels = levels
                     };
 
-                    NiHonGoContext.Words.Add(word);
+                    NiHonGoContext.Grammars.Add(grammar);
                     NiHonGoContext.SaveChanges();
                 }
                 else
                 {
-                    var isAny = NiHonGoContext.Words
-                    .Any(r => r.Japanese == data.Japanese && r.Id != data.Id);
+                    var isAny = NiHonGoContext.Grammars
+                    .Any(r => r.Title == data.Title && r.Id != data.Id);
                     if (isAny)
-                        return new IsSuccessResult(ErrorCode.AlreadyHadThisWord.ToString());
+                        return new IsSuccessResult(ErrorCode.AlreadyHadThisGrammar.ToString());
 
-                    var word = NiHonGoContext.Words
+                    var grammar = NiHonGoContext.Grammars
                         .SingleOrDefault(r => r.Id == data.Id);
-                    if (word == null)
-                        return new IsSuccessResult(ErrorCode.WordNotFound.ToString());
+                    if (grammar == null)
+                        return new IsSuccessResult(ErrorCode.GrammarNotFound.ToString());
 
-                    word.Japanese = data.Japanese;
-                    word.Chinese = data.Chinese;
+                    grammar.Title = data.Title;
+                    grammar.Description = data.Description;
                     var levels = new List<Level>();
                     foreach (var item in data.Levels)
                     {
@@ -76,7 +76,7 @@ namespace NiHonGo.Core.Logic
                         if (level != null)
                             levels.Add(level);
                     }
-                    word.Levels = levels;
+                    grammar.Levels = levels;
 
                     NiHonGoContext.SaveChanges();
                 }
@@ -91,32 +91,32 @@ namespace NiHonGo.Core.Logic
             }
         }
 
-        public IsSuccessResult<WordInfo> GetDetail(int wordId)
+        public IsSuccessResult<GrammarInfo> GetDetail(int grammarId)
         {
             var log = GetLogger();
 
-            var word = NiHonGoContext.Words
+            var grammar = NiHonGoContext.Grammars
                 .Include(r => r.Levels)
-                .SingleOrDefault(r => r.Id == wordId);
+                .SingleOrDefault(r => r.Id == grammarId);
 
-            if (word == null)
-                return new IsSuccessResult<WordInfo>(ErrorCode.WordNotFound.ToString());
+            if (grammar == null)
+                return new IsSuccessResult<GrammarInfo>(ErrorCode.GrammarNotFound.ToString());
 
             try
             {
-                var result = new IsSuccessResult<WordInfo>
+                var result = new IsSuccessResult<GrammarInfo>
                 {
-                    ReturnObject = new WordInfo
+                    ReturnObject = new GrammarInfo
                     {
-                        Id = word.Id,
-                        Japanese = word.Japanese,
-                        Chinese = word.Chinese,
-                        Levels = word.Levels
-                        .Select(r => new LevelInfo
-                        {
-                            Id = r.Id,
-                            Display = r.Display
-                        }).ToList(),
+                        Id = grammar.Id,
+                        Title = grammar.Title,
+                        Description = grammar.Description,
+                        Levels = grammar.Levels
+                    .Select(r => new LevelInfo
+                    {
+                        Id = r.Id,
+                        Display = r.Display
+                    }).ToList(),
                     }
                 };
 
@@ -126,26 +126,26 @@ namespace NiHonGo.Core.Logic
             {
                 log.Error(ex);
 
-                return new IsSuccessResult<WordInfo>(ErrorCode.InternalError.ToString());
+                return new IsSuccessResult<GrammarInfo>(ErrorCode.InternalError.ToString());
             }
         }
 
-        public List<WordInfo> GetList(int videoId)
+        public List<GrammarInfo> GetList(int videoId)
         {
             var log = GetLogger();
 
             var video = NiHonGoContext.Videos.SingleOrDefault(r => r.Id == videoId);
             if (video == null)
-                return new List<WordInfo>();
+                return new List<GrammarInfo>();
 
-            return NiHonGoContext.Words
+            return NiHonGoContext.Grammars
                 .Include(r => r.Levels)
                 .Where(r => r.Videos.Contains(video))
-                .Select(r => new WordInfo
+                .Select(r => new GrammarInfo
                 {
                     Id = r.Id,
-                    Chinese = r.Chinese,
-                    Japanese = r.Japanese,
+                    Title = r.Title,
+                    Description = r.Description,
                     Levels = r.Levels.Select(l => new LevelInfo
                     {
                         Id = l.Id,

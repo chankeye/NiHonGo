@@ -23,11 +23,11 @@ namespace NiHonGo.Data.Models
         public DbSet<Video> Videos { get; set; }
         public DbSet<Level> Levels { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Grammer> Grammers { get; set; }
+        public DbSet<Grammar> Grammars { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new GrammerMap());
+            modelBuilder.Configurations.Add(new GrammarMap());
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new LevelMap());
             modelBuilder.Configurations.Add(new VideoMap());

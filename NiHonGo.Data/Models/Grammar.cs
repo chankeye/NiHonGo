@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace NiHonGo.Data.Models
 {
-    public partial class Grammer
+    public partial class Grammar
     {
-        public Grammer()
+        public Grammar()
         {
             this.Levels = new List<Level>();
             this.Videos = new List<Video>();
