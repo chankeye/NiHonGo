@@ -1,8 +1,7 @@
-﻿using NiHonGo.Data.Models;
-using System;
+﻿using NiHonGo.Core.DTO.Word;
 using System.Collections.Generic;
 
-namespace NiHonGo.Core.DTO.Company
+namespace NiHonGo.Core.DTO.Video
 {
     public class VideoInfo
     {
@@ -18,11 +17,11 @@ namespace NiHonGo.Core.DTO.Company
 
         public string ChineseContent { get; set; }
 
-        public List<Level> Levels { get; set; }
+        public List<LevelInfo> Levels { get; set; }
 
-        public List<Word> Words { get; set; }
+        public List<WordInfo> Words { get; set; }
 
-        public List<Grammer> Grammers { get; set; }
+        public List<GrammerInfo> Grammers { get; set; }
 
         public string CreateDateTime { get; set; }
 

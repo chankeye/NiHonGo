@@ -1,5 +1,5 @@
 ﻿using NiHonGo.Core.DTO;
-using NiHonGo.Core.DTO.Company;
+using NiHonGo.Core.DTO.Video;
 using NiHonGo.Core.Enum;
 using NiHonGo.Data.Models;
 using System;
@@ -93,12 +93,12 @@ namespace NiHonGo.Core.Logic
             }
         }
 
-        public IsSuccessResult<VideoInfo> GetDetail(int companyId)
+        public IsSuccessResult<VideoInfo> GetDetail(int videoId)
         {
             var log = GetLogger();
 
             var video = NiHonGoContext.Videos
-                .SingleOrDefault(r => r.Id == companyId);
+                .SingleOrDefault(r => r.Id == videoId);
 
             var result = new IsSuccessResult<VideoInfo>();
             if (video == null)

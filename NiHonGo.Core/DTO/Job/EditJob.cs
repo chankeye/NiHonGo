@@ -1,4 +1,4 @@
-﻿namespace NiHonGo.Core.DTO.Company
+﻿namespace NiHonGo.Core.DTO.Video
 {
     public class EditJob
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NiHonGo.Core.DTO.Company
+namespace NiHonGo.Core.DTO.Video
 {
     public class JobListReturn
     {
