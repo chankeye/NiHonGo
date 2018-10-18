@@ -10,7 +10,7 @@ namespace NiHonGo.Core.DTO.User
 
         public string Password { get; set; }
 
-        public List<string> Levels { get; set; }
+        public List<LevelInfo> Levels { get; set; }
 
         public string CreateDateTime { get; set; }
     }

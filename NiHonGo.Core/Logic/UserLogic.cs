@@ -6,6 +6,8 @@ using NiHonGo.Data.Models;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace NiHonGo.Core.Logic
 {
@@ -115,6 +117,7 @@ namespace NiHonGo.Core.Logic
             var log = GetLogger();
 
             var user = NiHonGoContext.Users
+                .Include(r => r.Levels)
                 .SingleOrDefault(r => r.Id == id);
             if (user == null)
                 return new IsSuccessResult<CreateUser>(ErrorCode.UserNotFound.ToString());
@@ -126,6 +129,12 @@ namespace NiHonGo.Core.Logic
                     Email = user.Email,
                     Name = user.Name,
                     Password = user.Password,
+                    Levels = user.Levels
+                    .Select(l => new LevelInfo
+                    {
+                        Id = l.Id,
+                        Display = l.Display
+                    }).ToList(),
                     CreateDateTime = user.CreateDateTime.ToLocalTime().ToString("yyyy-MM-dd")
                 }
             };
@@ -159,12 +168,21 @@ namespace NiHonGo.Core.Logic
 
             try
             {
+                var levels = new List<Level>();
+                foreach (var item in data.Levels)
+                {
+                    var level = NiHonGoContext.Levels.SingleOrDefault(r => r.Id == item.Id);
+                    if (level != null)
+                        levels.Add(level);
+                }
+
                 var user = NiHonGoContext.Users.Add(new User
                 {
                     Name = data.Name,
                     Password = Cryptography.EncryptBySHA1(data.Password),
                     Email = data.Email,
                     Type = (int)type,
+                    Levels = levels,
                     CreateDateTime = DateTime.UtcNow
                 });
                 NiHonGoContext.SaveChanges();
@@ -236,7 +254,6 @@ namespace NiHonGo.Core.Logic
         public UserInfoList GetList(string email, int index, int count)
         {
             var log = GetLogger();
-            log.Debug("email: {0}, index: {1}, count: {2}", email, index, count);
 
             IQueryable<User> query = NiHonGoContext.Users;
             if (string.IsNullOrWhiteSpace(email) == false)

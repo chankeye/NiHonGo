@@ -63,11 +63,6 @@
     <Compile Include="DTO\Video\VideoSimpleInfo.cs" />
     <Compile Include="DTO\Video\VideoInfo.cs" />
     <Compile Include="DTO\Video\VideoSimpleInfoList.cs" />
-    <Compile Include="DTO\Job\JobListReturn.cs" />
-    <Compile Include="DTO\Job\SearchJob.cs" />
-    <Compile Include="DTO\Job\EditJob.cs" />
-    <Compile Include="DTO\Job\JobSimpleInfo.cs" />
-    <Compile Include="DTO\Job\JobInfo.cs" />
     <Compile Include="DTO\LoginInfo.cs" />
     <Compile Include="DTO\Operation.cs" />
     <Compile Include="DTO\IsSuccessResult.cs" />
