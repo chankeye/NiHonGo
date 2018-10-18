@@ -22,7 +22,7 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <title>TRAILS - 日本就活の軌跡</title>
+        <title>NiHonGo - 免費日文學習網站</title>
         <link rel="icon" href="~/Content/Images/Logo.png">
 
         @* load css *@
@@ -37,7 +37,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.1/typeahead.jquery.js"></script>
-        <script src="~/Scripts/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
         <script src="~/Scripts/language.js"></script>
         <script src="~/Scripts/site.js"></script>
         @RenderSection("Scripts", false)
@@ -60,9 +60,7 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li title="@Resources.Resource.JobSearch" rel="v:url" property="v:Title">@Html.ActionLink(Resources.Resource.JobSearch, "Index", "Job")</li>
                             <li title="@Resources.Resource.CompanySearch" rel="v:url" property="v:Title">@Html.ActionLink(Resources.Resource.CompanySearch, "Index", "Company")</li>
-                            <li title="@Resources.Resource.WorkBlog" rel="v:url" property="v:Title">@Html.ActionLink(@Resources.Resource.WorkBlog, "Index", "Blog")</li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             @if (isLogin)

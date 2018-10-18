@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>TRAILS - @Resources.Resource.UserLogin</title>
+    <title>NiHonGo - @Resources.Resource.UserLogin</title>
 
     @* load css *@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
@@ -27,7 +27,6 @@
             <input type="password" class="form-control" minlength="6" placeholder="@Resources.Resource.InputPassword" name="password" required />
             <button class="btn btn-lg btn-danger btn-block">@Resources.Resource.Login</button>
             <a href="/User/Register" class="btn btn-lg btn-primary btn-block">@Resources.Resource.RegisterNewUser</a>
-            <a href="/User/MasterRegister" class="btn btn-lg btn-success btn-block">@Resources.Resource.RegisterNewMaster</a>
             <a href="/" class="btn btn-lg btn-default btn-block">@Resources.Resource.GoBackToHome</a>
             <div class="text-danger">
                 @Html.ValidationSummary()

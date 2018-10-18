@@ -66,11 +66,6 @@
     <Compile Include="DTO\LoginInfo.cs" />
     <Compile Include="DTO\Operation.cs" />
     <Compile Include="DTO\IsSuccessResult.cs" />
-    <Compile Include="DTO\Profile\EditProfile.cs" />
-    <Compile Include="DTO\Profile\SchoolInfo.cs" />
-    <Compile Include="DTO\Profile\WorksInfo.cs" />
-    <Compile Include="DTO\Profile\ExperienceInfo.cs" />
-    <Compile Include="DTO\Profile\ProfileInfo.cs" />
     <Compile Include="DTO\Suggestion.cs" />
     <Compile Include="DTO\System\ListItem.cs" />
     <Compile Include="DTO\User\CreateUser.cs" />
