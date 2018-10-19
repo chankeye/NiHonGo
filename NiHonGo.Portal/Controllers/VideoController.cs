@@ -1,16 +1,12 @@
 ﻿using NiHonGo.Core.DTO;
-using NiHonGo.Core.DTO.Company;
 using NiHonGo.Core.Enum;
 using NiHonGo.Core.Logic;
-using System;
-using System.IO;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NiHonGo.Portal.Controllers
 {
     [Authorize]
-    public class CompanyController : _BaseController
+    public class VideoController : _BaseController
     {
         UserLogic UserLogic
         {
@@ -23,91 +19,58 @@ namespace NiHonGo.Portal.Controllers
         }
         UserLogic _userLogic;
 
-        CompanyLogic CompanyLogic
+        VideoLogic VideoLogic
         {
             get
             {
-                if (_companyLogic == null)
-                    _companyLogic = new CompanyLogic();
-                return _companyLogic;
+                if (_videoLogic == null)
+                    _videoLogic = new VideoLogic();
+                return _videoLogic;
             }
         }
-        CompanyLogic _companyLogic;
-
-        JobLogic JobLogic
-        {
-            get
-            {
-                if (_jobLogic == null)
-                    _jobLogic = new JobLogic();
-                return _jobLogic;
-            }
-        }
-        JobLogic _jobLogic;
+        VideoLogic _videoLogic;
 
         [HttpGet]
         [AllowAnonymous]
         public ActionResult Index() => View();
 
-        [HttpGet]
-        public ActionResult Master()
-        {
-            if (LoginInfo.UserType == UserType.User)
-                return Redirect("/Error/PageNotFind");
+        //[HttpGet]
+        //public ActionResult Edit()
+        //{
+        //    if (LoginInfo.UserType == UserType.User)
+        //        return Redirect("/Error/PageNotFind");
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        [HttpPost]
-        public ActionResult MasterInit()
-        {
-            var result = UserLogic.GetMasterCompanyId(GetOperation().UserId);
-            if (result.IsSuccess == false)
-                return Json(result);
-            else
-            {
-                var result2 = CompanyLogic.GetDetail(result.ReturnObject);
-                return Json(result2);
-            }
-        }
+        //[HttpPost]
+        //public ActionResult EditInit()
+        //{
+        //    var result = UserLogic.GetMasterCompanyId(GetOperation().UserId);
+        //    if (result.IsSuccess == false)
+        //        return Json(result);
+        //    else
+        //    {
+        //        var result2 = VideoLogic.GetDetail(result.ReturnObject);
+        //        return Json(result2);
+        //    }
+        //}
 
-        [HttpGet]
-        public ActionResult Edit()
-        {
-            if (LoginInfo.UserType == UserType.User)
-                return Redirect("/Error/PageNotFind");
+        //[HttpPost]
+        //public ActionResult EditSubmit(CompanyInfo data)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(data.Photo))
+        //    {
+        //        var originalDirectory = new DirectoryInfo(string.Format("{0}MediaUpload\\", Server.MapPath(@"\")));
+        //        var pathString = Path.Combine(originalDirectory.ToString(), "CompanyPhoto");
+        //        var ext = Path.GetExtension(data.Photo);
+        //        var photoName = "temp" + GetOperation().UserId + ext;
+        //        data.Photo = string.Format("{0}\\{1}", pathString, photoName);
+        //    }
+        //    var result = VideoLogic.Edit(GetOperation().UserId, data);
 
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult EditInit()
-        {
-            var result = UserLogic.GetMasterCompanyId(GetOperation().UserId);
-            if (result.IsSuccess == false)
-                return Json(result);
-            else
-            {
-                var result2 = CompanyLogic.GetDetail(result.ReturnObject);
-                return Json(result2);
-            }
-        }
-
-        [HttpPost]
-        public ActionResult EditSubmit(CompanyInfo data)
-        {
-            if (!string.IsNullOrWhiteSpace(data.Photo))
-            {
-                var originalDirectory = new DirectoryInfo(string.Format("{0}MediaUpload\\", Server.MapPath(@"\")));
-                var pathString = Path.Combine(originalDirectory.ToString(), "CompanyPhoto");
-                var ext = Path.GetExtension(data.Photo);
-                var photoName = "temp" + GetOperation().UserId + ext;
-                data.Photo = string.Format("{0}\\{1}", pathString, photoName);
-            }
-            var result = CompanyLogic.Edit(GetOperation().UserId, data);
-
-            return Json(result);
-        }
+        //    return Json(result);
+        //}
 
         [HttpGet]
         public ActionResult Detail(string id)
@@ -129,97 +92,71 @@ namespace NiHonGo.Portal.Controllers
             try
             {
                 var companyId = int.Parse(id);
-                var result = CompanyLogic.GetDetail(companyId);
+                var result = VideoLogic.GetDetail(companyId);
                 return Json(result);
             }
             catch
             {
-                var result = new IsSuccessResult(ErrorCode.CompanyNotFound.ToString());
+                var result = new IsSuccessResult(ErrorCode.VideoNotFound.ToString());
                 return Json(result);
             }
         }
 
         [HttpPost]
-        public ActionResult GetMasterJobList(int index, int count)
-        {
-            var result = UserLogic.GetMasterCompanyId(GetOperation().UserId);
-            if (result.IsSuccess == false)
-                return Json(new JobListReturn());
-            else
-            {
-                var filter = new SearchJob();
-                filter.CompanyId = result.ReturnObject;
-                filter.IsOnlyRecruiting = false;
-                var result2 = JobLogic.GetList(filter, index, count);
-                return Json(result2);
-            }
-        }
-
-        [HttpPost]
         [AllowAnonymous]
-        public ActionResult GetJobList(int id, int index, int count)
+        public ActionResult GetVideoList(string keyword, int index, int count)
         {
-            var filter = new SearchJob();
-            filter.CompanyId = id;
-            var result2 = JobLogic.GetList(filter, index, count);
-            return Json(result2);
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult GetCompanyList(string keyword, int index, int count)
-        {
-            var result = CompanyLogic.GetList(keyword, index, count);
+            var result = VideoLogic.GetList(keyword, index, count);
 
             return Json(result);
         }
 
-        [HttpPost]
-        public ActionResult Photo()
-        {
-            var isSavedSuccessfully = true;
-            var fName = "";
-            var defaultPhotoName = "temp" + GetOperation().UserId;
-            var photoName = defaultPhotoName;
-            var companyIdResult = UserLogic.GetMasterCompanyId(GetOperation().UserId);
-            if (companyIdResult.IsSuccess)
-                photoName = companyIdResult.ReturnObject.ToString();
+        //[HttpPost]
+        //public ActionResult Photo()
+        //{
+        //    var isSavedSuccessfully = true;
+        //    var fName = "";
+        //    var defaultPhotoName = "temp" + GetOperation().UserId;
+        //    var photoName = defaultPhotoName;
+        //    var companyIdResult = UserLogic.GetMasterCompanyId(GetOperation().UserId);
+        //    if (companyIdResult.IsSuccess)
+        //        photoName = companyIdResult.ReturnObject.ToString();
 
-            foreach (string fileName in Request.Files)
-            {
-                var file = Request.Files[fileName];
-                fName = file.FileName;
-                if (file != null && file.ContentLength > 0)
-                {
-                    var originalDirectory = new DirectoryInfo(string.Format("{0}MediaUpload\\", Server.MapPath(@"\")));
-                    var pathString = Path.Combine(originalDirectory.ToString(), "CompanyPhoto");
-                    var isExists = Directory.Exists(pathString);
+        //    foreach (string fileName in Request.Files)
+        //    {
+        //        var file = Request.Files[fileName];
+        //        fName = file.FileName;
+        //        if (file != null && file.ContentLength > 0)
+        //        {
+        //            var originalDirectory = new DirectoryInfo(string.Format("{0}MediaUpload\\", Server.MapPath(@"\")));
+        //            var pathString = Path.Combine(originalDirectory.ToString(), "CompanyPhoto");
+        //            var isExists = Directory.Exists(pathString);
 
-                    if (!isExists)
-                        Directory.CreateDirectory(pathString);
+        //            if (!isExists)
+        //                Directory.CreateDirectory(pathString);
 
-                    var ext = Path.GetExtension(file.FileName);
-                    var fileName1 = photoName + ext;
-                    var path = string.Format("{0}\\{1}", pathString, fileName1);
-                    file.SaveAs(path);
+        //            var ext = Path.GetExtension(file.FileName);
+        //            var fileName1 = photoName + ext;
+        //            var path = string.Format("{0}\\{1}", pathString, fileName1);
+        //            file.SaveAs(path);
 
-                    if (photoName.Contains(defaultPhotoName) == false && companyIdResult.IsSuccess)
-                    {
-                        var result = CompanyLogic.UpdatePhoto(companyIdResult.ReturnObject, fileName1);
-                        if (result.IsSuccess == false)
-                            isSavedSuccessfully = false;
-                    }
-                }
-            }
+        //            if (photoName.Contains(defaultPhotoName) == false && companyIdResult.IsSuccess)
+        //            {
+        //                var result = VideoLogic.UpdatePhoto(companyIdResult.ReturnObject, fileName1);
+        //                if (result.IsSuccess == false)
+        //                    isSavedSuccessfully = false;
+        //            }
+        //        }
+        //    }
 
-            if (isSavedSuccessfully)
-            {
-                return Json(new { Message = fName });
-            }
-            else
-            {
-                return Json(new { Message = "Error in saving file" });
-            }
-        }
+        //    if (isSavedSuccessfully)
+        //    {
+        //        return Json(new { Message = fName });
+        //    }
+        //    else
+        //    {
+        //        return Json(new { Message = "Error in saving file" });
+        //    }
+        //}
     }
 }

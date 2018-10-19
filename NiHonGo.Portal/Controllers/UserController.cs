@@ -1,5 +1,4 @@
 ﻿using NiHonGo.Core.DTO;
-using NiHonGo.Core.DTO.Profile;
 using NiHonGo.Core.DTO.User;
 using NiHonGo.Core.Enum;
 using NiHonGo.Core.Logic;
@@ -25,27 +24,12 @@ namespace NiHonGo.Portal.Controllers
         }
         UserLogic _userLogic;
 
-        ProfileLogic ProfileLogic
-        {
-            get
-            {
-                if (_profileLogic == null)
-                    _profileLogic = new ProfileLogic();
-                return _profileLogic;
-            }
-        }
-        ProfileLogic _profileLogic;
-
         [HttpGet]
         public ActionResult Index() => View();
 
         [HttpGet]
         [AllowAnonymous]
         public ActionResult Register() => View();
-
-        [HttpGet]
-        [AllowAnonymous]
-        public ActionResult MasterRegister() => View();
 
         [HttpPost]
         [AllowAnonymous]
@@ -56,160 +40,72 @@ namespace NiHonGo.Portal.Controllers
             return Json(result);
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult MasterRegisterSubmit(CreateUser data)
-        {
-            var result = UserLogic.AddUser(data, UserType.Master);
+        //[HttpGet]
+        //public ActionResult Profile(string id)
+        //{
+        //    try
+        //    {
+        //        var userId = int.Parse(id);
+        //        return View();
+        //    }
+        //    catch
+        //    {
+        //        var result = new IsSuccessResult(ErrorCode.UserNotFound.ToString());
+        //        return Redirect("/Error/PageNotFind");
+        //    }
+        //}
 
-            return Json(result);
-        }
+        //[HttpPost]
+        //public ActionResult ProfileInit(string id)
+        //{
+        //    try
+        //    {
+        //        var userId = int.Parse(id);
+        //        var result = ProfileLogic.GetDetail(userId);
+        //        return Json(result);
+        //    }
+        //    catch
+        //    {
+        //        var result = new IsSuccessResult(ErrorCode.UserNotFound.ToString());
+        //        return Json(result);
+        //    }
+        //}
 
-        [HttpGet]
-        public ActionResult Profile(string id)
-        {
-            try
-            {
-                var userId = int.Parse(id);
-                return View();
-            }
-            catch
-            {
-                var result = new IsSuccessResult(ErrorCode.UserNotFound.ToString());
-                return Redirect("/Error/PageNotFind");
-            }
-        }
+        //[HttpGet]
+        //public ActionResult ProfileEdit() => View();
 
-        [HttpPost]
-        public ActionResult ProfileInit(string id)
-        {
-            try
-            {
-                var userId = int.Parse(id);
-                var result = ProfileLogic.GetDetail(userId);
-                return Json(result);
-            }
-            catch
-            {
-                var result = new IsSuccessResult(ErrorCode.UserNotFound.ToString());
-                return Json(result);
-            }
-        }
+        //[HttpPost]
+        //public ActionResult ProfileEditInit()
+        //{
+        //    var result = ProfileLogic.GetDetail(GetOperation().UserId);
 
-        [HttpGet]
-        public ActionResult ProfileEdit() => View();
+        //    return Json(result);
+        //}
 
-        [HttpPost]
-        public ActionResult ProfileEditInit()
-        {
-            var result = ProfileLogic.GetDetail(GetOperation().UserId);
+        //[HttpPost]
+        //public ActionResult ProfileEditSubmit(EditProfile data)
+        //{
+        //    var result = ProfileLogic.Edit(GetOperation().UserId, data);
 
-            return Json(result);
-        }
+        //    return Json(result);
+        //}
 
-        [HttpPost]
-        public ActionResult ProfileEditSubmit(EditProfile data)
-        {
-            var result = ProfileLogic.Edit(GetOperation().UserId, data);
+        //[HttpPost]
+        //public ActionResult SkillEditSubmit(string display)
+        //{
+        //    var result = ProfileLogic.EditSkill(GetOperation().UserId, display);
 
-            return Json(result);
-        }
+        //    return Json(result);
+        //}
 
-        [HttpPost]
-        public ActionResult ExperienceEditSubmit(ExperienceInfo data)
-        {
-            var result = ProfileLogic.EditExperience(GetOperation().UserId, data);
+        
+        //[HttpPost]
+        //public ActionResult DeleteSkill(int skillId)
+        //{
+        //    var result = ProfileLogic.DeleteSkill(GetOperation().UserId, skillId);
 
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult WorksEditSubmit(WorksInfo data)
-        {
-            var result = ProfileLogic.EditWorks(GetOperation().UserId, data);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult SchoolEditSubmit(SchoolInfo data)
-        {
-            var result = ProfileLogic.EditSchool(GetOperation().UserId, data);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult SkillEditSubmit(string display)
-        {
-            var result = ProfileLogic.EditSkill(GetOperation().UserId, display);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult LanguageEditSubmit(string display)
-        {
-            var result = ProfileLogic.EditLanguage(GetOperation().UserId, display);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult LicenseEditSubmit(string display)
-        {
-            var result = ProfileLogic.EditLicense(GetOperation().UserId, display);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteExperience(string name)
-        {
-            var result = ProfileLogic.DeleteExperience(GetOperation().UserId, name);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteWorks(string name)
-        {
-            var result = ProfileLogic.DeleteWorks(GetOperation().UserId, name);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteSchool(string name)
-        {
-            var result = ProfileLogic.DeleteSchool(GetOperation().UserId, name);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteSkill(int skillId)
-        {
-            var result = ProfileLogic.DeleteSkill(GetOperation().UserId, skillId);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteLanguage(int languageId)
-        {
-            var result = ProfileLogic.DeleteLanguage(GetOperation().UserId, languageId);
-
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteLicense(int licenseId)
-        {
-            var result = ProfileLogic.DeleteLicense(GetOperation().UserId, licenseId);
-
-            return Json(result);
-        }
+        //    return Json(result);
+        //}
 
         /// <summary>
         /// login view
@@ -285,21 +181,6 @@ namespace NiHonGo.Portal.Controllers
             return Redirect("/User/Login");
         }
 
-        #region Private Methods
-        /// <summary>
-        /// 重新導向
-        /// </summary>
-        /// <param name="returnUrl">重導路徑</param>
-        /// <returns></returns>
-        ActionResult redirect(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-                return Redirect(returnUrl);
-            else
-                return Redirect("/");
-        }
-        #endregion //Private Methods
-
         [HttpGet]
         public ActionResult ChangePassword() => View();
 
@@ -314,54 +195,67 @@ namespace NiHonGo.Portal.Controllers
             return null;
         }
 
-        [HttpPost]
-        public ActionResult Photo()
+        //[HttpPost]
+        //public ActionResult Photo()
+        //{
+        //    bool isSavedSuccessfully = true;
+        //    string fName = "";
+        //    try
+        //    {
+        //        foreach (string fileName in Request.Files)
+        //        {
+        //            HttpPostedFileBase file = Request.Files[fileName];
+        //            //Save file content goes here
+        //            fName = file.FileName;
+        //            if (file != null && file.ContentLength > 0)
+        //            {
+
+        //                var originalDirectory = new DirectoryInfo(string.Format("{0}MediaUpload\\", Server.MapPath(@"\")));
+
+        //                string pathString = Path.Combine(originalDirectory.ToString(), "UserPhoto");
+
+        //                bool isExists = Directory.Exists(pathString);
+
+        //                if (!isExists)
+        //                    Directory.CreateDirectory(pathString);
+
+        //                var ext = Path.GetExtension(file.FileName);
+        //                var fileName1 = GetOperation().UserId.ToString() + ext;
+        //                var path = string.Format("{0}\\{1}", pathString, fileName1);
+        //                file.SaveAs(path);
+
+        //                var result = ProfileLogic.UpdatePhoto(GetOperation().UserId, fileName1);
+        //                if (result.IsSuccess == false)
+        //                    isSavedSuccessfully = false;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        isSavedSuccessfully = false;
+        //    }
+
+        //    if (isSavedSuccessfully)
+        //    {
+        //        return Json(new { Message = fName });
+        //    }
+        //    else
+        //    {
+        //        return Json(new { Message = "Error in saving file" });
+        //    }
+        //}
+
+        /// <summary>
+        /// 重新導向
+        /// </summary>
+        /// <param name="returnUrl">重導路徑</param>
+        /// <returns></returns>
+        ActionResult redirect(string returnUrl)
         {
-            bool isSavedSuccessfully = true;
-            string fName = "";
-            try
-            {
-                foreach (string fileName in Request.Files)
-                {
-                    HttpPostedFileBase file = Request.Files[fileName];
-                    //Save file content goes here
-                    fName = file.FileName;
-                    if (file != null && file.ContentLength > 0)
-                    {
-
-                        var originalDirectory = new DirectoryInfo(string.Format("{0}MediaUpload\\", Server.MapPath(@"\")));
-
-                        string pathString = Path.Combine(originalDirectory.ToString(), "UserPhoto");
-
-                        bool isExists = Directory.Exists(pathString);
-
-                        if (!isExists)
-                            Directory.CreateDirectory(pathString);
-
-                        var ext = Path.GetExtension(file.FileName);
-                        var fileName1 = GetOperation().UserId.ToString() + ext;
-                        var path = string.Format("{0}\\{1}", pathString, fileName1);
-                        file.SaveAs(path);
-
-                        var result = ProfileLogic.UpdatePhoto(GetOperation().UserId, fileName1);
-                        if (result.IsSuccess == false)
-                            isSavedSuccessfully = false;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                isSavedSuccessfully = false;
-            }
-
-            if (isSavedSuccessfully)
-            {
-                return Json(new { Message = fName });
-            }
+            if (Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
             else
-            {
-                return Json(new { Message = "Error in saving file" });
-            }
+                return Redirect("/");
         }
     }
 }

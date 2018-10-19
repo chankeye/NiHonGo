@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddJob" xml:space="preserve">
-    <value>新增工作</value>
-  </data>
-  <data name="Age" xml:space="preserve">
-    <value>年齡</value>
-  </data>
-  <data name="ApplyRecruiter" xml:space="preserve">
-    <value>申請成為公司招募人</value>
-  </data>
-  <data name="BackToCompanyMaster" xml:space="preserve">
-    <value>回公司管理頁面</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -137,36 +125,6 @@
   </data>
   <data name="Clear" xml:space="preserve">
     <value>清除</value>
-  </data>
-  <data name="CompanyAddress" xml:space="preserve">
-    <value>公司地址</value>
-  </data>
-  <data name="CompanyIntroduction" xml:space="preserve">
-    <value>公司介紹</value>
-  </data>
-  <data name="CompanyMemberCount" xml:space="preserve">
-    <value>公司人數</value>
-  </data>
-  <data name="CompanyName" xml:space="preserve">
-    <value>公司名稱</value>
-  </data>
-  <data name="CompanyPhone" xml:space="preserve">
-    <value>公司電話</value>
-  </data>
-  <data name="CompanyProfileEdit" xml:space="preserve">
-    <value>公司資訊修改</value>
-  </data>
-  <data name="CompanySearch" xml:space="preserve">
-    <value>找公司</value>
-  </data>
-  <data name="CompanyStartYear" xml:space="preserve">
-    <value>成立年度</value>
-  </data>
-  <data name="CompanyUrl" xml:space="preserve">
-    <value>公司網址</value>
-  </data>
-  <data name="Confirm" xml:space="preserve">
-    <value>確定</value>
   </data>
   <data name="ConfirmNewPassword" xml:space="preserve">
     <value>確認新密碼</value>
@@ -180,14 +138,11 @@
   <data name="CreateDate" xml:space="preserve">
     <value>加入時間</value>
   </data>
-  <data name="Display" xml:space="preserve">
-    <value>暱稱</value>
+  <data name="JapaneseLevel" xml:space="preserve">
+    <value>日文程度</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>編輯</value>
-  </data>
-  <data name="EditCompany" xml:space="preserve">
-    <value>修改公司資訊</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>電子信箱</value>
@@ -291,42 +246,6 @@
   <data name="Introduction" xml:space="preserve">
     <value>自我介紹</value>
   </data>
-  <data name="IsMarried" xml:space="preserve">
-    <value>是否結婚</value>
-  </data>
-  <data name="JobArea" xml:space="preserve">
-    <value>職缺地區</value>
-  </data>
-  <data name="JobCreateDate" xml:space="preserve">
-    <value>刊登時間</value>
-  </data>
-  <data name="JobDetail" xml:space="preserve">
-    <value>職缺說明</value>
-  </data>
-  <data name="JobEdit" xml:space="preserve">
-    <value>職缺資訊修改</value>
-  </data>
-  <data name="JobHow" xml:space="preserve">
-    <value>該怎麼做</value>
-  </data>
-  <data name="JobList" xml:space="preserve">
-    <value>職缺列表</value>
-  </data>
-  <data name="JobSearch" xml:space="preserve">
-    <value>找工作</value>
-  </data>
-  <data name="JobTitle" xml:space="preserve">
-    <value>職缺標題</value>
-  </data>
-  <data name="JobType" xml:space="preserve">
-    <value>職缺類型</value>
-  </data>
-  <data name="JobWhat" xml:space="preserve">
-    <value>該做什麼</value>
-  </data>
-  <data name="JobWhy" xml:space="preserve">
-    <value>為什麼要做這個</value>
-  </data>
   <data name="Keyword" xml:space="preserve">
     <value>關鍵字</value>
   </data>
@@ -339,17 +258,8 @@
   <data name="Logout" xml:space="preserve">
     <value>登出</value>
   </data>
-  <data name="Married" xml:space="preserve">
-    <value>已婚</value>
-  </data>
-  <data name="Mobile" xml:space="preserve">
-    <value>手機</value>
-  </data>
   <data name="MustColumn" xml:space="preserve">
     <value>必填欄位</value>
-  </data>
-  <data name="MyCompany" xml:space="preserve">
-    <value>我的公司</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>姓名</value>
@@ -387,9 +297,6 @@
   <data name="RegisterNewUser" xml:space="preserve">
     <value>註冊新會員</value>
   </data>
-  <data name="SalaryRange" xml:space="preserve">
-    <value>薪資範圍</value>
-  </data>
   <data name="Search" xml:space="preserve">
     <value>搜尋</value>
   </data>
@@ -420,15 +327,6 @@
   <data name="BasicProfile" xml:space="preserve">
     <value>基本資料</value>
   </data>
-  <data name="Career" xml:space="preserve">
-    <value>工作經歷</value>
-  </data>
-  <data name="Department" xml:space="preserve">
-    <value>科系</value>
-  </data>
-  <data name="ExperienceDetail" xml:space="preserve">
-    <value>工作說明</value>
-  </data>
   <data name="InputDepartment" xml:space="preserve">
     <value>請輸入您就讀的科系</value>
   </data>
@@ -456,44 +354,17 @@
   <data name="InputWorksName" xml:space="preserve">
     <value>請輸入作品名稱</value>
   </data>
-  <data name="JobTitleName" xml:space="preserve">
-    <value>職稱</value>
-  </data>
   <data name="Language" xml:space="preserve">
     <value>語言</value>
   </data>
   <data name="Period" xml:space="preserve">
     <value>期間</value>
   </data>
-  <data name="School" xml:space="preserve">
-    <value>學校</value>
-  </data>
-  <data name="SchoolDetail" xml:space="preserve">
-    <value>學校詳細資訊</value>
-  </data>
-  <data name="SchoolName" xml:space="preserve">
-    <value>校名</value>
-  </data>
   <data name="Skill" xml:space="preserve">
     <value>技能</value>
   </data>
-  <data name="Works" xml:space="preserve">
-    <value>作品</value>
-  </data>
-  <data name="WorksDetail" xml:space="preserve">
-    <value>作品說明</value>
-  </data>
-  <data name="WorksName" xml:space="preserve">
-    <value>作品名稱</value>
-  </data>
   <data name="InputLicense" xml:space="preserve">
     <value>請輸入證照名稱</value>
-  </data>
-  <data name="License" xml:space="preserve">
-    <value>證照</value>
-  </data>
-  <data name="Visa" xml:space="preserve">
-    <value>擁有簽證</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>新增</value>
@@ -503,15 +374,6 @@
   </data>
   <data name="InputCatalog" xml:space="preserve">
     <value>請輸入目錄</value>
-  </data>
-  <data name="Apply" xml:space="preserve">
-    <value>我要應徵</value>
-  </data>
-  <data name="BlogInformation" xml:space="preserve">
-    <value>開始了解日本求職的相關資訊</value>
-  </data>
-  <data name="CompanyInformation" xml:space="preserve">
-    <value>開始尋找日本的公司</value>
   </data>
   <data name="ForBlog" xml:space="preserve">
     <value>日本求職、文化、旅遊資訊</value>
@@ -531,9 +393,6 @@
   <data name="ForUserInformation" xml:space="preserve">
     <value>TRAILS提供了日本當地企業的工作職缺，提供對台灣人有興趣、想拓展台灣市場的日本企業資訊，希望能幫助更多的台灣人到日本工作找到一份理想的工作，體驗日本文化，享受日本的生活，人人都能獲得良好的生活與工作的平衡</value>
   </data>
-  <data name="JobInformation" xml:space="preserve">
-    <value>開始尋找日本各地的工作資訊</value>
-  </data>
   <data name="EmailDescription" xml:space="preserve">
     <value>使用者應徵時會將應徵者的資訊寄到此信箱，請務必填入正確的信箱。</value>
   </data>
@@ -542,5 +401,11 @@
   </data>
   <data name="SignUp" xml:space="preserve">
     <value>註冊</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>影片</value>
   </data>
 </root>

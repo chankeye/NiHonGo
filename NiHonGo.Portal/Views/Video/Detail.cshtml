@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@section Scripts
+{
+<script src="~/Scripts/ctrls/CompanyDetailCtrl.js"></script>
+}
+<div class="container">
+    <div class="page-header">
+        <h3><label id="videoname" name="videoname"></label></h3>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <p>
+            @Resources.Resource.UpdateDate：<span class="glyphicon glyphicon-time"></span>&nbsp;<label id="updatedate" name="updatedate"></label>
+        </p>
+        <p>
+            <img id="photo" name="photo" class="img-rounded img-responsive" style="max-height: 300px;" />
+        </p>
+        <br />
+        <div>
+            <!-- <ul class="nav nav-tabs">
+         <li id="CompanyLi" name="CompanyLi" role="presentation" class="active"><a href="#" onclick="ShowCompany()">@Resources.Resource.MyCompany</a></li>
+         <li id="JobLi" name="JobLi" role="presentation"><a href="#" onclick="ShowJob()">@Resources.Resource.JobList</a></li>
+     </ul>
+     <hr>
+     <div id="CompanyDiv" name="CompanyDiv">
+         <p>
+             <label id="companyintroduction" name="companyintroduction" class="contentLabel text-muted"></label>
+         </p>
+
+         <p>
+             @Resources.Resource.CompanyUrl：<a id="companyurl" name="companyurl" target="_blank"></a>
+         </p>
+
+         <p>
+             @Resources.Resource.CompanyPhone：<label id="companyphone" name="companyphone"></label>
+         </p>
+
+         <p>
+             @Resources.Resource.CompanyMemberCount：<label id="membercount" name="membercount"></label>
+         </p>
+
+         <p>
+             @Resources.Resource.CompanyAddress：<label id="companyaddress" name="companyaddress"></label>
+         </p>
+
+         <p>
+             @Resources.Resource.CompanyStartYear：<label id="startyear" name="startyear"></label>
+         </p>
+
+         <p>
+             @Resources.Resource.CreateDate：<label id="createdate" name="createdate"></label>
+         </p>
+     </div>
+        -->
+        </div>
+        <div id="JobListDiv" name="JobListDiv" style="display: none;">
+            <div id="joblist" name="joblist"></div>
+            <hr>
+            <ul id="pagination" name="pagination" class="pagination custom navbar-right"></ul>
+        </div>
+    </div>
+</div>

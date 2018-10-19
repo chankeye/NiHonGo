@@ -146,13 +146,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Resource.ja-JP.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.ja-JP.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="Settigns.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -424,19 +421,13 @@
     <Content Include="Scripts\ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\Ctrls\BlogMasterCtrl.js" />
-    <Content Include="Scripts\Ctrls\CompanyDetailCtrl.js" />
+    <Content Include="Scripts\Ctrls\VideoDetailCtrl.js" />
     <Content Include="Scripts\Ctrls\BlogIndexCtrl.js" />
-    <Content Include="Scripts\Ctrls\CompanyIndexCtrl.js" />
+    <Content Include="Scripts\Ctrls\VideoIndexCtrl.js" />
     <Content Include="Scripts\Ctrls\BlogEditCtrl.js" />
     <Content Include="Scripts\Ctrls\BlogDetailCtrl.js" />
-    <Content Include="Scripts\Ctrls\JobIndexCtrl.js" />
-    <Content Include="Scripts\Ctrls\JobDetailCtrl.js" />
-    <Content Include="Scripts\Ctrls\JobMasterCtrl.js" />
-    <Content Include="Scripts\Ctrls\JobEditCtrl.js" />
-    <Content Include="Scripts\Ctrls\CompanyEditCtrl.js" />
-    <Content Include="Scripts\Ctrls\MasterRegisterCtrl.js" />
+    <Content Include="Scripts\Ctrls\VideoEditCtrl.js" />
     <Content Include="Scripts\Ctrls\UserChangePasswordCtrl.js" />
-    <Content Include="Scripts\Ctrls\CompanyMasterCtrl.js" />
     <Content Include="Scripts\Ctrls\UserProfileEditCtrl.js" />
     <Content Include="Scripts\Ctrls\UserProfileCtrl.js" />
     <Content Include="Scripts\Ctrls\RegisterCtrl.js" />
@@ -512,14 +503,10 @@
     <Content Include="Views\Error\InternalError.cshtml" />
     <Content Include="Views\Error\PageNotFind.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
-    <Content Include="Views\User\ProfileEdit.cshtml" />
-    <Content Include="Views\User\Profile.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
-    <Content Include="Views\Company\Master.cshtml" />
-    <Content Include="Views\Company\Edit.cshtml" />
-    <Content Include="Views\Company\Detail.cshtml" />
+    <Content Include="Views\Video\Detail.cshtml" />
     <Content Include="Scripts\bower_libs\dropzone\dist\readme.md" />
-    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Video\Index.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Blog\Detail.cshtml" />
     <Content Include="Views\Blog\Master.cshtml" />
@@ -538,12 +525,6 @@
     <Content Include="App_GlobalResources\Resource.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource1.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\Resource.ja-JP.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource.ja-JP.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

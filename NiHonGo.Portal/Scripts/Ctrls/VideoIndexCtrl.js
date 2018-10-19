@@ -12,46 +12,46 @@
         });
 });
 
-function GoToCompanyPage(id) {
-    window.location = "/Company/Detail/" + id;
+function GoToVideoPage(id) {
+    window.location = "/Video/Detail/" + id;
 }
 
 function Search(index, count) {
-    $("#companylist").empty();
+    $("#videolist").empty();
     $("#pagination").empty();
 
     $.ajax({
         type: 'post',
-        url: '/Company/GetCompanyList/',
+        url: '/Video/GetVideoList/',
         data: {
             Keyword: $("#keyword").val(),
             index: index,
             count: count
         },
         success: function (data) {
-            // company list
+            // video list
             var list = "";
-            if (data.List.length == 0) {
-                list = utilsApp.toMessage("CompanyListDefaultMsg");
+            if (data.List.length === 0) {
+                list = utilsApp.toMessage("VideoListDefaultMsg");
             }
             for (i = 0; i < data.List.length; i++) {
                 list += '<div class="jumbotron">';
-                if (data.List[i].Photo != null && data.List[i].Photo != "")
+                if (data.List[i].Photo !== null && data.List[i].Photo !== "")
                     list += '<img id="photo" name="photo" class="img-rounded img-responsive" style="max-height: 200px;" src="/MediaUpload/CompanyPhoto/' + data.List[i].Photo + '"/>'
                 else
                     list += '<img id="photo" name="photo" class="img-rounded img-responsive" style="max-height: 200px;" src="/Content/Images/Trails.jpg">';
 
-                list += '<h3><a class="text-danger" href="#" OnClick="GoToCompanyPage(' + data.List[i].Id + ')">' + data.List[i].Name + '</a></h3>';
+                list += '<h3><a class="text-danger" href="#" OnClick="GoToVideoPage(' + data.List[i].Id + ')">' + data.List[i].Name + '</a></h3>';
                 list += '<h5><span class="glyphicon glyphicon-time"></span><label>&nbsp;' + data.List[i].UpdateDate + '</label></h5>';
 
                 var detail = data.List[i].Introduction;
-                if (detail != null) {
+                if (detail !== null) {
                     detail = detail.replace(/\n/g, '<br />');
                     list += '<p class="text-muted">' + detail + '</p>';
                 }
                 list += '</div>';
             }
-            $("#companylist").append(list);
+            $("#videolist").append(list);
             $("#count").text(data.Count);
 
             // pagination
