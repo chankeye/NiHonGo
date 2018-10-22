@@ -1,4 +1,21 @@
 ﻿$(function () {
+    var levels = [];
+    $.ajax({
+        type: 'post',
+        url: '/System/LevelList',
+        success: function (data) {
+            // level list
+            var list = "";
+            for (i = 0; i < data.length; i++) {
+                list += '<label class="checkbox-inline"><input id="level' + data[i].Value +
+                    '" name="' + data[i].Value + '" type="checkbox" value="' + data[i].Value + '">' +
+                    data[i].Display + '</label>';
+
+                levels.push({ Id: data[i].Value, Display: data[i].Display });
+            }
+            $("#levelList").append(list);
+        }
+    });
 
     $("#commentForm").validate({
         rules: {
@@ -18,12 +35,6 @@
             },
             comPassword: {
                 equalTo: "#password"
-            },
-            display: {
-                maxlength: 20
-            },
-            mobile: {
-                maxlength: 20
             }
         },
         messages: {
@@ -41,13 +52,7 @@
                 minlength: utilsApp.toMessage("CantSmallThan6Word"),
                 maxlength: utilsApp.toMessage("CantBigThan20Word")
             },
-            comPassword: utilsApp.toMessage("OldAndNewPWDIsDifferent"),
-            display: {
-                maxlength: utilsApp.toMessage("CantBigThan20Word")
-            },
-            mobile: {
-                maxlength: utilsApp.toMessage("CantBigThan20Word")
-            }
+            comPassword: utilsApp.toMessage("OldAndNewPWDIsDifferent")
         }
     });
 
@@ -55,22 +60,27 @@
         function () {
             var $btn = $("#btnAdd");
 
-            if ($("#commentForm").valid() == false) {
+            if ($("#commentForm").valid() === false) {
                 return;
             }
 
             $btn.button("loading");
+
+            var selectedlevels = [];
+            for (var i = 0; i < levels.length; i++) {
+                if ($('#level' + levels[i].Id).is(':checked')) {
+                    selectedlevels.push(levels[i]);
+                }
+            }
 
             $.ajax({
                 type: 'post',
                 url: '/User/RegisterSubmit',
                 data: {
                     Name: $("#name").val(),
-                    Display: $("#display").val(),
-                    Phone: $("#mobile").val(),
                     Email: $("#email").val(),
                     Password: $("#password").val(),
-                    IsDisable: false
+                    Levels: selectedlevels
                 },
                 success: function (data) {
                     $btn.button("reset");

@@ -1,9 +1,5 @@
 ﻿using NiHonGo.Core.DTO;
-using NiHonGo.Core.DTO.Company;
-using NiHonGo.Core.Enum;
 using NiHonGo.Core.Logic;
-using System.Globalization;
-using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -23,30 +19,9 @@ namespace NiHonGo.Portal.Controllers
         SystemLogic _systemLogic;
 
         [HttpPost]
-        public ActionResult AreaList()
+        public ActionResult LevelList()
         {
-            var result = SystemLogic.GetAreas();
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult JobTypeList()
-        {
-            var result = SystemLogic.GetJobTypes();
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult JobStatusList()
-        {
-            var result = SystemLogic.GetJobStatuses();
-            return Json(result);
-        }
-
-        [HttpPost]
-        public ActionResult VisaList()
-        {
-            var result = SystemLogic.GetVisas();
+            var result = SystemLogic.GetLevels();
             return Json(result);
         }
 
