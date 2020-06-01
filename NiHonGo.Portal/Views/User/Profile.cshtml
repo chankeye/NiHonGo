@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@section Scripts
+{
+    <script src="~/Scripts/ctrls/UserProfileCtrl.js"></script>
+}
+<div class="container">
+    <div class="page-header">
+        <h3><label id="name" name="name"></label> ( <label id="display" name="display"></label> )</h3>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <p>
+            <img id="photo" name="photo" class="img-rounded img-responsive" style="width: 160px;" />
+        </p>
+
+        <p>
+            <label id="introduction" name="introduction" class="contentLabel text-muted"></label>
+        </p>
+
+        <p>
+            @Resources.Resource.Email：<label id="email" name="email"></label>
+        </p>
+
+        <p>
+            @Resources.Resource.Visa：<label id="visa" name="visa"></label>
+        </p>
+
+        <p>
+            @Resources.Resource.Mobile：<label id="phone" name="phone"></label>
+        </p>
+
+        <p>
+            @Resources.Resource.Age：<label id="age" name="age"></label>
+        </p>
+
+        <p>
+            @Resources.Resource.IsMarried：<label id="ismarried" name="ismarried"></label>
+        </p>
+
+        <p>
+            @Resources.Resource.CreateDate：<label id="createdate" name="createdate"></label>
+        </p>
+
+        <p>
+            @Resources.Resource.UpdateDate：<label id="updatedate" name="updatedate"></label>
+        </p>
+
+        <legend class="text-danger">
+            <i class="fa fa-check-circle"></i>
+            @Resources.Resource.Career
+        </legend>
+        <div id="experiencelist" name="experiencelist"></div>
+
+        <legend class="text-danger">
+            <i class="fa fa-check-circle"></i>
+            @Resources.Resource.Works
+        </legend>
+        <div id="workslist" name="workslist"></div>
+
+        <legend class="text-danger">
+            <i class="fa fa-check-circle"></i>
+            @Resources.Resource.Skill
+        </legend>
+        <div id="skilllist" name="skilllist"></div>
+
+        <legend class="text-danger">
+            <i class="fa fa-check-circle"></i>
+            @Resources.Resource.Language
+        </legend>
+        <div id="languagelist" name="languagelist"></div>
+
+        <legend class="text-danger">
+            <i class="fa fa-check-circle"></i>
+            @Resources.Resource.License
+        </legend>
+        <div id="licenselist" name="licenselist"></div>
+
+        <legend class="text-danger">
+            <i class="fa fa-check-circle"></i>
+            @Resources.Resource.School
+        </legend>
+        <div id="schoollist" name="schoollist"></div>
+    </div>
+</div>

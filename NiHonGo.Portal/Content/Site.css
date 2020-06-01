@@ -1,0 +1,237 @@
+﻿body, select, button, input, textarea,
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Microsoft JhengHei','微軟正黑體';
+}
+
+body {
+    background-color: #FFFFFF;
+}
+
+/* ul.ul-padding-vertical-05 */
+ul.ul-padding-vertical-05 {
+    margin: 0.5em 0;
+}
+
+    ul.ul-padding-vertical-05 > li {
+        padding: 0.5em 0;
+    }
+
+/* 手機 */
+@media (max-width: 767px) {
+    .mobile-hide {
+        display: none;
+    }
+
+    blockquote.mobile-no-padding-left {
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .mobile-show {
+        display: none;
+    }
+}
+
+/* 這樣的搭配，上下的padding太大了，設成沒有吧 */
+.btn.btn-link {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* 顯示現在時間的div */
+#div-dateNow {
+    float: right;
+}
+
+.prev {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.next {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Jquery Vaildation error 改為紅色 */
+#commentForm label.error {
+    color: red;
+}
+
+#experienceCommentForm label.error {
+    color: red;
+}
+
+#worksCommentForm label.error {
+    color: red;
+}
+
+#skillCommentForm label.error {
+    color: red;
+}
+
+#languageCommentForm label.error {
+    color: red;
+}
+
+#licenseCommentForm label.error {
+    color: red;
+}
+
+#schoolCommentForm label.error {
+    color: red;
+}
+
+/* 圖片最大只能30em */
+.fullImage {
+    max-height: 30em;
+}
+
+/* 詳細頁的content */
+.contentLabel {
+    width: 800px;
+}
+
+@media only screen and (min-width:451px) and (max-width:768px) {
+    .contentLabel {
+        width: 450px;
+    }
+}
+
+@media only screen and (min-width:1px) and (max-width:450px) {
+    .contentLabel {
+        width: 300px;
+    }
+}
+
+/* navbar */
+.navbar-default {
+    background-color: #d9534f;
+    border-color: #c0392b;
+}
+
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+    }
+
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            color: #ffbbbc;
+        }
+
+    .navbar-default .navbar-text {
+        color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+    }
+
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #ffbbbc;
+        }
+
+    .navbar-default .navbar-nav > li > .dropdown-menu {
+        background-color: #d9534f;
+    }
+
+        .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+            color: #ecf0f1;
+        }
+
+            .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+            .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+                color: #ffbbbc;
+                background-color: #c0392b;
+            }
+
+        .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+            background-color: #c0392b;
+        }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #ffbbbc;
+        background-color: #c0392b;
+    }
+
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #ffbbbc;
+        background-color: #c0392b;
+    }
+
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #ffbbbc;
+        background-color: #c0392b;
+    }
+
+    .navbar-default .navbar-toggle {
+        border-color: #c0392b;
+    }
+
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: #c0392b;
+        }
+
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #ecf0f1;
+        }
+
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        border-color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-link {
+        color: #ecf0f1;
+    }
+
+        .navbar-default .navbar-link:hover {
+            color: #ffbbbc;
+        }
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+    }
+
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #ffbbbc;
+        }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #ffbbbc;
+        background-color: #c0392b;
+    }
+}
+
+/* pagination */
+.pagination.custom > li > a,
+.pagination.custom > li > span {
+    background: #d9534f;
+    border: none;
+    color: #ecf0f1;
+}
+
+    .pagination.custom > li > a:hover,
+    .pagination.custom > li > a:focus,
+    .pagination.custom > li > span:hover,
+    .pagination.custom > li > span:focus,
+    .pagination.custom > li.active > a,
+    .pagination.custom > li.active > span {
+        background: #c0392b;
+        color: #ffbbbc;
+    }

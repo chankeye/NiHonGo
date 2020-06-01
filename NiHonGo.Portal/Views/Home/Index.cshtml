@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@section Styles
+{
+    <link href="~/Content/Views/Home/index.css" rel="stylesheet" />
+}
+
+@section Scripts
+{
+}
+
+<div class="container marketing">
+    <br />
+    <br />
+    <br />
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <!--<div class="col-lg-4">
+        <img class="img-circle" src="~/Content/Images/Company.jpg" alt="Search Company" style="width: 140px; height: 140px;">
+        <h3 property="v:Title">@Resources.Resource.Video</h3>
+        <p property="v:Information">@Resources.Resource.CompanyInformation</p>
+        <p><a class="btn btn-default" href="/Company" role="button" rel="v:url">Read More »</a></p>-->
+    </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h3 class="featurette-heading" property="v:Title">@Resources.Resource.ForUser</h3>
+            <p class="lead" property="v:Information">
+                @Resources.Resource.ForUserInformation
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive" alt="Message for user" src="~/Content/Images/ForUser.jpg">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive" alt="Message for company" src="~/Content/Images/ForCompany.jpg">
+        </div>
+        <div class="col-md-7">
+            <h3 class="featurette-heading" property="v:Title">@Resources.Resource.ForCompany</h3>
+            <p class="lead" property="v:Information">
+                @Resources.Resource.ForCompanyInformation
+            </p>
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h3 class="featurette-heading" property="v:Title">@Resources.Resource.ForBlog</h3>
+            <p class="lead" property="v:Information">
+                @Resources.Resource.ForBlogInformation
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive" alt="TRAILS BLOG" src="~/Content/Images/ForBlog.jpg" />
+        </div>
+    </div>
+
+    <!-- /END THE FEATURETTES -->
+
+</div>

@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@section Scripts
+{
+    <script src="~/Scripts/ctrls/RegisterCtrl.js"></script>
+}
+<div class="container">
+    <div class="page-header">
+        <h3>@Resources.Resource.RegisterNewUser</h3>
+    </div>
+    <div>
+        <form id="commentForm" class="form-horizontal" method="POST" name="form1">
+            <legend class="text-info">
+                <i class="fa fa-check"></i>
+                @Resources.Resource.MustColumn
+            </legend>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">@Resources.Resource.Email</label>
+                <div class="col-sm-4">
+                    <input id="email" name="email" class="form-control" placeholder="@Resources.Resource.InputEmail" required autofocus />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">@Resources.Resource.Password</label>
+                <div class="col-sm-4">
+                    <input id="password" name="password" type="password" class="form-control" placeholder="@Resources.Resource.InputPassword" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">@Resources.Resource.ConfirmPassword</label>
+                <div class="col-sm-4">
+                    <input id="comPassword" name="comPassword" type="password" class="form-control" placeholder="@Resources.Resource.InputPasswordAgain" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">@Resources.Resource.Name</label>
+                <div class="col-sm-4">
+                    <input id="name" name="name" class="form-control" placeholder="@Resources.Resource.InputName" required />
+                </div>
+            </div>
+            <legend class="text-info">
+                <i class="fa fa-check"></i>
+                @Resources.Resource.OptionColumn
+            </legend>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">@Resources.Resource.JapaneseLevel</label>
+                <div class="col-sm-8">
+                    <div id="levelList" name="levelList"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button id="btnAdd" type="button" class="btn btn-danger" data-loading-text="@Resources.Resource.Loading">@Resources.Resource.Create</button>
+                    <button id="btnClear" type="reset" class="btn btn-default">@Resources.Resource.Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

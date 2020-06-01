@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    @* meta *@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>NiHonGo - @Resources.Resource.UserLogin</title>
+
+    @* load css *@
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Views/User/Login.css" rel="stylesheet" />
+
+    @* load js *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <form class="form-signin" method="post" action="@Request.Url.PathAndQuery">
+            <h3 class="form-signin-heading">
+                <span>@Resources.Resource.Login TRAILS</span>
+            </h3>
+            <input type="text" class="form-control" minlength="6" placeholder="@Resources.Resource.InputEmail" name="email" required autofocus />
+            <input type="password" class="form-control" minlength="6" placeholder="@Resources.Resource.InputPassword" name="password" required />
+            <button class="btn btn-lg btn-danger btn-block">@Resources.Resource.Login</button>
+            <a href="/User/Register" class="btn btn-lg btn-primary btn-block">@Resources.Resource.RegisterNewUser</a>
+            <a href="/" class="btn btn-lg btn-default btn-block">@Resources.Resource.GoBackToHome</a>
+            <div class="text-danger">
+                @Html.ValidationSummary()
+            </div>
+        </form>
+    </div>
+</body>
+</html>
